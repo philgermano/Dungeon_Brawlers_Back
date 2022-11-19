@@ -2,18 +2,16 @@ const mongoose = require('mongoose');
 
 const gameSchema = new mongoose.Schema({
 
-    username:{type:String, required: true, unique: true},
+    username:{type:String, required: true},
     email:{
         type:String, required: true, unique: true
     },
     playerDet:[{ 
         location: {type: Number},
-        direction:{type: String},
         health: {type: Number} 
     }],
     enemyDet:[{ 
         location: {type: Number},
-        direction:{type: String},
         health: {type: Number} 
     }]
 

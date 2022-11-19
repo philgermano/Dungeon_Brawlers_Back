@@ -15,7 +15,7 @@ const index = (req, res) => {
 };
 
 const search = (req, res) => {
-  db.Game.findOne({username:req.params.id}, (error, game) => {
+  db.Game.findOne({email:req.params.id}, (error, game) => {
     //console.log(req.params.id)
 
     if(error) return res.status(400).json({ error: error.message });
@@ -37,7 +37,7 @@ const create = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  db.Game.deleteOne({username:req.params.id}, (error, deletedGame) => {
+  db.Game.deleteOne({email:req.params.id}, (error, deletedGame) => {
     if(error) return res.status(400).json({ error: error.message });
 
     return res.status(200).json({
@@ -47,7 +47,7 @@ const destroy = (req, res) => {
 };
 
 const update = (req, res) => {
-  db.Game.updateOne({username:req.params.id},
+  db.Game.updateOne({email:req.params.id},
     {
       $set: req.body
     },
