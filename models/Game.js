@@ -6,14 +6,11 @@ const gameSchema = new mongoose.Schema({
     email:{
         type:String, required: true, unique: true
     },
-    playerDet:[{ 
-        location: {type: Number},
-        health: {type: Number} 
-    }],
-    enemyDet:[{ 
-        location: {type: Number},
-        health: {type: Number} 
-    }]
+    playerRoom: {type: Number},
+    playerHealth: {type: Number} ,
+    enemyRoom: {type: Number},
+    enemyHealth: {type: Number} 
+    
 
 });
 
