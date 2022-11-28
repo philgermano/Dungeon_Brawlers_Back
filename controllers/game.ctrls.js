@@ -51,6 +51,7 @@ const update = (req, res) => {
     {
       $set: req.body
     },
+    {upsert:true},
     { new: true },
     (error, updatedGame) => {
     if(error) return res.status(400).json({ error: error.message });
