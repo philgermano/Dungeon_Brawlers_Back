@@ -47,12 +47,14 @@ const destroy = (req, res) => {
 };
 
 const update = (req, res) => {
-  db.Game.updateOne({email:req.params.id},
+  db.Game.findOneAndUpdate({email:req.params.id},
     {
       $set: req.body
     },
-    {upsert:true},
-    { new: true },
+      {
+    upsert: true,
+    new: true
+  },
     (error, updatedGame) => {
     if(error) return res.status(400).json({ error: error.message });
 
